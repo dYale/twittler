@@ -4,7 +4,6 @@
 
     <script src="jquery.js"></script>
     <script src="data_generator.js"></script>
-    <script type="text/javascript" src="twitler.js"></script>
 
     <link href='stylesheet.css' rel="stylesheet"></link>
      </head>
@@ -21,6 +20,80 @@
     </div>
     <ul class="posts">
       <p class='new'></p>
+      <script>
+
+
+      
+      
+      
+      $(document).ready(function(){
+        var counterNumber = function(num){
+          $('.counter').text(num);
+        }
+
+
+        //removes text from input box
+        $('.twilt').on('click', function(){
+          $(this).text('');
+        })
+        
+        //counter update function, including color changes
+         $('.twilt').keydown(function() {
+          counterNumber(140 - $(this).val().length);
+          if(+$(this).val().length > 140){
+            $('.counter').css("color","red");
+          } else if(+$(this).val().length <= 140){
+            $('.counter').css("color","#b3d9d9");
+          }
+
+        })
+
+          //submit new barks
+         $('.btn').on('click', function(){
+          var status = $('.twilt').val();
+          if($('.twilt').val().length <= 140 && $('.twilt').val().length > 0){
+          $('<li>').text('@mrGrumpyPants: ' + status + new Date().toISOString().replace(/\D/g,"").substr(0,14)).prependTo('.posts');
+          $('.twilt').val("");
+          counterNumber(140);
+        } else if(('.twilt').val().length === 0) {
+        } else {
+          alert("Your message is too long!")
+        }
+      })
+
+
+var usersTweets = {};
+        function tweetTracker(tweeter, message){
+          if(!usersTweets[tweeter]){
+            usersTweets[tweeter] = [message];
+          } else {
+            usersTweets[tweeter].push(message);
+          }
+        };
+
+         var $body = $('body');
+        var index = streams.home.length - 1;
+        while(index >= 0){
+          var tweet = streams.home[index];
+          var $tweet = $('<li>');
+          $tweet.text('@' + tweet.user + ': ' + tweet.message);
+          $tweet.prependTo('.posts');
+          tweetTracker(tweet.user,tweet.message);
+          index -= 1;
+
+          $('.posts').on('click', '<li>', function(){
+            
+          })
+
+
+console.log(usersTweets)
+            }
+      });
+
+
+
+      </script>
+      
     </div>
   </body>
 </html>
