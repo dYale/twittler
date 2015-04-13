@@ -17,6 +17,10 @@ body {
 
 }
 
+h1{
+  margin-top: 55px;
+  font-size: 72px;
+}
 .header{
 	font-family: Georgia,Times,"Times New Roman",serif;
 	color: rgb(210,211,250);
@@ -40,6 +44,7 @@ background-color:#DCDCDC;
 	background-color:#292f33;
 	border-radius:15px;
 	margin: 60px;
+  height: 225px;
 }
 
 .post{
@@ -57,7 +62,7 @@ background-color:#DCDCDC;
 
 .counter{
   position: relative;
-  bottom: 83px;
+  bottom: 63px;
   font-size: 35px;
   color: #b3d9d9;
   margin-left: 800px;
@@ -86,7 +91,6 @@ background-color:#DCDCDC;
 
 
 .posts {
-  display: table;
 	background-color: #dcdcdc;
   margin-bottom: 10px;
   list-style: none;
@@ -100,6 +104,7 @@ background-color:#DCDCDC;
 }
 
 .posts li {
+  cursor: pointer;
 	background: #c09d78 url(http://img.webmd.com/dtmcms/live/webmd/consumer_assets/site_images/thumbnails/unified_right_rail/thumbnails/69x75_thumbnail_dog_breed_rmq.jpg) left no-repeat;  
   background-color: #fff;
   border: 5px solid #d8d8d8;
@@ -118,19 +123,76 @@ background-color:#DCDCDC;
 
 .selected{
   float: right;
-  position: normal;
-  width: 80%;
-  height: 60px;
-  padding-top: 10px 20px;
-  background-color:#fff;
-  border-radius:15px ;
-  margin: 60px;
-  z-index: 105;
+  margin-bottom: 10px;
+  list-style: none;
+  min-height: 35px;
+  width: 46%;
+  border-radius: 15px;
+  }
+
+.wrap li{
+  width: 100%;
+  list-style: none;
+  background-color: #dcdcdc;
+  border: 5px solid #d8d8d8;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-right:15px;
+  margin-bottom: 10px;
+  margin-left: -35px;
+  word-wrap: break-word;
+  border-radius: 15px;
+  text-align: center;
+  text-indent: 0px;
+  min-height: 35px;
 }
 
+.only{
+  text-align: center;
+  font-weight: bold;
+  font-size: 45px;
+  padding-top: -20px;
+}
 
-h2{
+.row{
+  width: 92%;
+  text-align: center;
+  list-style: none;
+  background-color:#969696;
+  margin: 0 50px 20px 50px;
+  display: inline-block;
+  top: 500px;
+  font-size: 30px;
+  border-radius: 15px;
+  font-weight: bold;
+}
+
+#douglas{
+  background-color: #fff;
+  border-radius: 15px;
+  margin: 0 0;
+
+}
+
+#mracus{
+background-color: #dcdcdc;
+border-radius: 15px;
+}
+
+#sharks{
+  background-color: #fff;
+  border-radius: 15px;
+}
+#shawn{
+  background-color: #dcdcdc;
+  border-radius: 15px;
+}
+
+h4,h3{
+  display: inline;
   font-size: 35px;
+
   margin-top: -30px;
-  margin-left: 280px;
+  margin-left: 250px;
+  margin-right: 185px;
 }
