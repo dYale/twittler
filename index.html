@@ -4,11 +4,12 @@
 
     <script src="jquery.js"></script>
     <script src="data_generator.js"></script>
+    <script src="http://timeago.yarp.com/jquery.timeago.js" type="text/javascript"></script>
 
     <link href='stylesheet.css' rel="stylesheet"></link>
      </head>
   <body>
-    <div class='header'>
+          <div class='header'>
       <h1 class="title">Barkler</h1>
     </div>
       <div class='outside'>
@@ -18,8 +19,10 @@
       <p class="counter">140</p>
     </div>
     </div>
+        <h2 class="title">Woofs!</h2>
     <ul class="posts">
       <p class='new'></p>
+        <div class="selected"><div class="history"></div></div>
       <script>
 
 
@@ -27,10 +30,12 @@
       
       
       $(document).ready(function(){
+
         var counterNumber = function(num){
           $('.counter').text(num);
         }
 
+        jQuery("abbr.timeago").timeago();
 
         //removes text from input box
         $('.twilt').on('click', function(){
@@ -48,11 +53,13 @@
 
         })
 
+
+
           //submit new barks
          $('.btn').on('click', function(){
           var status = $('.twilt').val();
           if($('.twilt').val().length <= 140 && $('.twilt').val().length > 0){
-          $('<li>').text('@mrGrumpyPants: ' + status + new Date().toISOString().replace(/\D/g,"").substr(0,14)).prependTo('.posts');
+          $('<li>').text('@mrGrumpyPants: ' + status + new Date()).prependTo('.posts');
           $('.twilt').val("");
           counterNumber(140);
         } else if(('.twilt').val().length === 0) {
@@ -62,7 +69,7 @@
       })
 
 
-var usersTweets = {};
+        var usersTweets = {};
         function tweetTracker(tweeter, message){
           if(!usersTweets[tweeter]){
             usersTweets[tweeter] = [message];
@@ -75,25 +82,49 @@ var usersTweets = {};
         var index = streams.home.length - 1;
         while(index >= 0){
           var tweet = streams.home[index];
-          var $tweet = $('<li>');
+          var $tweet = $('<li></li>').addClass(tweet.user);
           $tweet.text('@' + tweet.user + ': ' + tweet.message);
-          $tweet.prependTo('.posts');
+          setTimeout($tweet.prependTo('.posts'),3000);
           tweetTracker(tweet.user,tweet.message);
           index -= 1;
 
-          $('.posts').on('click', '<li>', function(){
-            
-          })
-
-
-console.log(usersTweets)
             }
+
+
+            //compare list to li
+            var compareLi = function(li){
+              for(var key in usersTweets){
+                if(li.indexOf(key) != -1){
+                  return key;
+                };
+              }}
+
+$('.posts').on('click', 'li', function(){
+  var nameForClass = compareLi($(this).text().toString());
+  $('selected').parent(nameForClass).slideToggle();
+})
+
+//create new area
+//copy, do not move, but copy. THIS IS HARD! use provided objects, figure out timestamp! Perhaps put timestamp in the object itself, update the object!
+//were getting there!
+
+//filter until name === class, display all in those class on right
+
+$('.li').on('mouseenter',  function() {
+  $(this).find('.posts').animate({"top": "-14px","opacity": "1"}, "fast");
+})
+
+$('.li').on('mouseleave',  function() {
+  $(this).find('.posts').animate({"top": "-14px","opacity": "1"}, "fast");
+})
+
+
+
       });
 
-
-
       </script>
-      
+      </div>
+      </div>
     </div>
   </body>
 </html>
