@@ -19,7 +19,7 @@
       <p class="counter">140</p>
     </div>
     </div>
-    <div class='only'>Your favorite pals!!</div>
+    <div class='only'>Your Favorite Pals!!</div>
     <div class='row'>
           <div class='col-lg-3' 'user', id='shawndrost'>@shawndrost</div>
       <div class='col-lg-3' 'user', id='sharksforcheap'>@sharksforcheap</div>
@@ -54,40 +54,33 @@
           } else if(+$(this).val().length <= 140){
             $('.counter').css("color","#b3d9d9");
           }
-
         })
 
+         //add first user-bark
         $('<li>').text('@mrGrumpyPants: starting the day feeling really grumpy'+'('+ new Date() + ')').prependTo('.wrap');
 
           //submit new barks
-         $('.btn').on('click', function(){
-
-
-
+        $('.btn').on('click', function(){
 
           var status = $('.twilt').val();
           if($('.twilt').val().length <= 140 && $('.twilt').val().length > 0){
-            
 
-            //update tweets
-           updateBarks();
+          //update tweets
+          updateBarks();
           
-            //add new tweet
+          //add new tweet
           $('<li>').text('@mrGrumpyPants: ' + status +'('+ new Date() + ')').prependTo('.posts');
           $('.selected').removeAttr("display");
           $('.twilt').val("");
           counterNumber(140);
-        } else if(('.twilt').val().length <= 0) {
-        } else {
-          alert("Your message is too long!")
-        }
-
-      })
+          } 
+        })
 
 
 
-         var $body = $('body');
+        var $body = $('body');
         var index = streams.home.length -1;
+        
         while(index >= 0){
           var tweet = streams.home[index];
           var $tweet = $("<li></li>");
@@ -97,35 +90,32 @@
             }
 
 
-var updateBarks = function(){$.each(streams.home, function(tweet){
-    var $tweet = $("<li></li>");
-  $tweet.text('@' + streams.home[tweet].user + ': ' + streams.home[tweet].message + "" + streams.home[tweet].created_at).prependTo('.posts').hide(0).show(600)
-})};
+        var updateBarks = function(){$.each(streams.home, function(tweet){
+          var $tweet = $("<li></li>");
+          
+          $tweet.text('@' + streams.home[tweet].user + ': ' + streams.home[tweet].message + "" + streams.home[tweet].created_at).prependTo('.posts').hide(0).show(600)
+        })};
 
 
-$('#update').on('click', function(){
-  updateBarks();
-  });
+        $('#update').on('click', function(){
+          updateBarks();
+        });
 
-//individual listor for friends, also updates all tweets
-$('.row').on('click','div', function(){
+        //individual listor for friends, also updates all tweets
+        $('.row').on('click','div', function(){
 
-  $('.wrap').empty();
-  var id = $(this).attr('id').toString();
+          $('.wrap').empty();
 
-    $('#friend').text("@" + id + "'s" + " Woofs!");
-  $.each(streams.users[id], function(tweet){
-    var $tweet = $("<li></li>");
-    $tweet.text('@' + streams.users[id][tweet].user + ': ' + streams.users[id][tweet].message + "" + streams.users[id][tweet].created_at).prependTo('.wrap').hide(0).show(800);
+          var id = $(this).attr('id').toString();
+          $('#friend').text("@" + id + "'s" + " Woofs!");
 
-  })
- updateBarks();
-})
-
-
-
-
-
+          $.each(streams.users[id], function(tweet){
+            var $tweet = $("<li></li>");
+            $tweet.text('@' + streams.users[id][tweet].user + ': ' + streams.users[id][tweet].message + "" + streams.users[id][tweet].created_at).
+            prependTo('.wrap').hide(0).show(800);
+          })
+          updateBarks();
+        })
 
       });
 

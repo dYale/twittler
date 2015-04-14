@@ -104,7 +104,6 @@ background-color:#DCDCDC;
   padding-right: 20px;
   padding-bottom: 10px;
   margin-bottom: 10px;
-  word-wrap: break-word;
   min-height: 35px;
   border-radius: 15px;
   text-align:center;
@@ -137,7 +136,6 @@ background-color:#DCDCDC;
   word-wrap: break-word;
   border-radius: 15px;
   text-align: center;
-  text-indent: 0px;
   min-height: 35px;
 }
 
@@ -165,22 +163,35 @@ background-color:#DCDCDC;
 #douglascalhoun{
   background-color: #fff;
   border-radius: 15px;
-  margin: 0 0;
-
 }
+#douglascalhoun:hover{
+  background-color:#dcdcaa;
+}
+
 
 #mracus{
 background-color: #dcdcdc;
 border-radius: 15px;
+}
+#mracus:hover{
+  background-color:#dcdcaa;
 }
 
 #sharksforcheap{
   background-color: #fff;
   border-radius: 15px;
 }
+
+#sharksforcheap:hover{
+  background-color: #dcdcaa;
+}
 #shawndrost{
   background-color: #dcdcdc;
   border-radius: 15px;
+}
+
+#shawndrost:hover{
+  background-color: #dcdcaa;
 }
 
 #update:hover{
