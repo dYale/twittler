@@ -45,12 +45,6 @@
         var counterNumber = function(num){
           $('.counter').text(num);
         }
-
-        //removes text from input box
-        $('.twilt').on('click', function(){
-          $(this).text('');
-        })
-        
         //counter update function, including color changes
          $('.twilt').keydown(function() {
           counterNumber(140 - $(this).val().length);
@@ -75,10 +69,7 @@
             
 
             //update tweets
-            $.each(streams.home, function(tweet, value){
-            
-              var $tweet = $("<li></li>");
-              $tweet.text('@' + streams.home[tweet].user + ': ' + streams.home[tweet].message + "" + streams.home[tweet].created_at).prependTo('.posts')
+           updateBarks();
             })
           
             //add new tweet
@@ -115,23 +106,23 @@
             }
 
 
+var updateBarks = function(){$.each(streams.home, function(tweet){
+    var $tweet = $("<li></li>");
+  $tweet.text('@' + streams.home[tweet].user + ': ' + streams.home[tweet].message + "" + streams.home[tweet].created_at).prependTo('.posts')
+})};
 
 
 $('#update').on('click', function(){
-
-  $.each(streams.home, function(tweet){
-    var $tweet = $("<li></li>");
-  $tweet.text('@' + streams.home[tweet].user + ': ' + streams.home[tweet].message + "" + streams.home[tweet].created_at).prependTo('.posts')
-})
+  updateBarks();
   });
 
 //individual listor for friends, also updates all tweets
 $('.row').on('click','div', function(){
 
-  $.each(streams.home, function(tweet){
-    var $tweet = $("<li></li>");
-  $tweet.text('@' + streams.home[tweet].user + ': ' + streams.home[tweet].message + "" + streams.home[tweet].created_at).prependTo('.posts')
-})
+
+  if(id === 'mracus'){
+    $('#mracus').css('background-image', 'url(http://images.craigslist.org/00u0u_3ePkf3JC3s_600x450.jpg)')
+  }
   $('h3').val(id);
   $('.wrap').empty();
   var id = $(this).attr('id').toString();
@@ -139,7 +130,7 @@ $('.row').on('click','div', function(){
     var $tweet = $("<li></li>");
     $tweet.text('@' + streams.users[id][tweet].user + ': ' + streams.users[id][tweet].message + "" + streams.users[id][tweet].created_at).prependTo('.wrap');
   })
- 
+ updateBarks();
 })
 
 
