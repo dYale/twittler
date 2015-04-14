@@ -8,26 +8,25 @@ body {
 
 
 .title{
-
-	position: relative;
-    right: 0px;
     width: 300px;
     border-radius: 15px;
+  display: inline;
+  font-size: 75px;
+
 
 }
 
 h1{
   margin-top: 55px;
-  font-size: 72px;
+  font-size: 15px;
 }
 .header{
 	font-family: Georgia,Times,"Times New Roman",serif;
 	color: rgb(210,211,250);
-	font-size: 4px;
+	font-size: 10px;
 	background-color: grey;
-	margin: 0 0 0 0;
 	border-radius: 15px;
-  text-align: left;
+  text-align: center;
 }
 
 .outside{
@@ -36,6 +35,9 @@ background-color:#DCDCDC;
 	margin: -50px 0 0 0;
 }
 
+#friend{
+  margin-left: 140px;
+}
 
 .container{
 	background-color:#292f33;
@@ -80,12 +82,9 @@ background-color:#DCDCDC;
 }
 
 .press:hover{
-	background: pink;
+	background: purple;
 	color: blue;
 	}
-
-
-
 
 .posts {
 	background-color: #dcdcdc;
@@ -94,10 +93,6 @@ background-color:#DCDCDC;
   min-height: 35px;
   width: 46%;
   border-radius: 15px;
-}
-
-.posts li:hover{
-
 }
 
 .posts li {
@@ -124,18 +119,21 @@ background-color:#DCDCDC;
   min-height: 35px;
   width: 46%;
   border-radius: 15px;
+  background-color: #292f33;
+  padding-left: 0;
   }
 
 .wrap li{
   width: 100%;
   list-style: none;
   background-color: #dcdcdc;
-  border: 5px solid #d8d8d8;
+  border: 5px solid #444444;
   padding-top: 10px;
   padding-bottom: 10px;
   padding-right:15px;
   margin-bottom: 10px;
   margin-left: -35px;
+  margin-top:5px;
   word-wrap: break-word;
   border-radius: 15px;
   text-align: center;
@@ -188,23 +186,15 @@ border-radius: 15px;
 #update:hover{
   background: #dcdcdc;
   cursor: pointer;
-
 }
-.title, h3{
-display: inline;
-  font-size: 35px;
 
-  margin-top: -30px;
-  margin-left: 250px;
-  margin-right: 185px;
-
-}
 
 h4,h3{
   display: inline;
   font-size: 35px;
+  border-radius: 15px;
 
   margin-top: -30px;
-  margin-left: 250px;
-  margin-right: 185px;
+  margin-left: 400px;
+  margin-right: 0;
 }

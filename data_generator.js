@@ -1,3 +1,6 @@
+
+
+
 /*
  * NOTE: This file generates fake tweet data, and is not intended to be part of your implementation.
  * You can safely leave this file untouched, and confine your changes to index.html.
@@ -42,7 +45,7 @@ var generateRandomTweet = function(){
   var tweet = {};
   tweet.user = randomElement(users);
   tweet.message = randomMessage();
-  tweet.created_at = new Date();
+  tweet.created_at = '('+ new Date() + ')';
   addTweet(tweet);
 };
 
@@ -67,3 +70,5 @@ var writeTweet = function(message){
   tweet.message = message;
   addTweet(tweet);
 };
+
+
