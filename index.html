@@ -22,14 +22,14 @@
     </div>
     <div class='only'>Your favorite pals!!</div>
     <div class='row'>
-          <div class='col-lg-3' id='shawn'>@shawndrost</div>
-      <div class='col-lg-3', id='sharks'>@sharksforcheap</div>
+          <div class='col-lg-3' id='shawndrost'>@shawndrost</div>
+      <div class='col-lg-3', id='sharksforcheap'>@sharksforcheap</div>
     <div class='col-lg-3', id='mracus'>@mracus</div>
-      <div class='col-lg-3', id='douglas'>@Ldouglascalhoun</div>
+      <div class='col-lg-3', id='douglascalhoun'>@Ldouglascalhoun</div>
 
     </div>
-      <h4 class="title">Their Woofs!</h2>
-        <h3 class="title">Your Growls!</h3><ul class="photos">
+      <h4 class="title" id='update'>All Woofs!</h2>
+        <li class="title" #='friend'>Your Woofs!</li>
       <ul class="selected"><ul class="wrap"></ul></ul>
 
     <ul class="posts">
@@ -66,9 +66,23 @@
 
           //submit new barks
          $('.btn').on('click', function(){
+
+
+
+
           var status = $('.twilt').val();
           if($('.twilt').val().length <= 140 && $('.twilt').val().length > 0){
-          $('<li>').text('@mrGrumpyPants: ' + status +'('+ new Date() + ')').prependTo('.wrap');
+            
+
+            //update tweets
+            $.each(streams.home, function(tweet, value){
+            
+              var $tweet = $("<li></li>");
+              $tweet.text('@' + streams.home[tweet].user + ': ' + streams.home[tweet].message + "" + streams.home[tweet].created_at).prependTo('.posts')
+            })
+          
+            //add new tweet
+          $('<li>').text('@mrGrumpyPants: ' + status +'('+ new Date() + ')').prependTo('.posts');
           $('.selected').removeAttr("display");
           $('.twilt').val("");
           counterNumber(140);
@@ -76,6 +90,7 @@
         } else {
           alert("Your message is too long!")
         }
+
       })
 
 
@@ -92,42 +107,41 @@
         var index = streams.home.length -1;
         while(index >= 0){
           var tweet = streams.home[index];
-          var $tweet = $("<li class='clickable'></li>");
+          var $tweet = $("<li></li>");
           $tweet.text('@' + tweet.user + ': ' + tweet.message + '('+ new Date() + ')');
           $tweet.prependTo('.posts');
           tweetTracker(tweet.user,tweet.message);
           index -= 1;
-
             }
-  function setIndex(){
-  index = 1
-};
-            setInterval(setIndex, 1500 * streams.users.length)
 
-            //compare list to li
-            var compareLi = function(li){
-              for(var key in usersTweets){
-                if(li.indexOf(key) != -1){
-                  return key;
-                };
-              }}
 
-$('.posts').on('click', 'li', function(){
-  var nameForClass = compareLi($(this).text().toString());
-  $(nameForClass).prependTo('.wrap');
+
+
+$('#update').on('click', function(){
+
+  $.each(streams.home, function(tweet){
+    var $tweet = $("<li></li>");
+  $tweet.text('@' + streams.home[tweet].user + ': ' + streams.home[tweet].message + "" + streams.home[tweet].created_at).prependTo('.posts')
+})
+  });
+
+//individual listor for friends, also updates all tweets
+$('.row').on('click','div', function(){
+
+  $.each(streams.home, function(tweet){
+    var $tweet = $("<li></li>");
+  $tweet.text('@' + streams.home[tweet].user + ': ' + streams.home[tweet].message + "" + streams.home[tweet].created_at).prependTo('.posts')
+})
+  $('h3').val(id);
+  $('.wrap').empty();
+  var id = $(this).attr('id').toString();
+  $.each(streams.users[id], function(tweet){
+    var $tweet = $("<li></li>");
+    $tweet.text('@' + streams.users[id][tweet].user + ': ' + streams.users[id][tweet].message + "" + streams.users[id][tweet].created_at).prependTo('.wrap');
+  })
+ 
 })
 
-//create new area
-//copy, do not move, but copy. THIS IS HARD! use provided objects, figure out timestamp! Perhaps put timestamp in the object itself, update the object!
-//were getting there!
-
-//filter until name === class, display all in those class on right
-
-//name tags inline elements, drop down comments
-
-$('.li').toggle('click',  function() {
-  $(this).animate({height:200},200);
-})
 
 
       });

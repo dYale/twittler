@@ -6,7 +6,6 @@ body {
   border-radius: 15px;
 }
 
-    <script type="text/javascript" src="twitler.js"></script>
 
 .title{
 
@@ -24,14 +23,12 @@ h1{
 .header{
 	font-family: Georgia,Times,"Times New Roman",serif;
 	color: rgb(210,211,250);
-	font-size: 40px;
+	font-size: 4px;
 	background-color: grey;
-	margin: -50px 0 0 0;
+	margin: 0 0 0 0;
 	border-radius: 15px;
-  text-align: center;
+  text-align: left;
 }
-
-
 
 .outside{
 background-color:#DCDCDC;
@@ -104,7 +101,6 @@ background-color:#DCDCDC;
 }
 
 .posts li {
-  cursor: pointer;
 	background: #c09d78 url(http://img.webmd.com/dtmcms/live/webmd/consumer_assets/site_images/thumbnails/unified_right_rail/thumbnails/69x75_thumbnail_dog_breed_rmq.jpg) left no-repeat;  
   background-color: #fff;
   border: 5px solid #d8d8d8;
@@ -156,6 +152,7 @@ background-color:#DCDCDC;
 
 .row{
   width: 92%;
+  cursor: pointer;
   text-align: center;
   list-style: none;
   background-color:#969696;
@@ -167,7 +164,7 @@ background-color:#DCDCDC;
   font-weight: bold;
 }
 
-#douglas{
+#douglascalhoun{
   background-color: #fff;
   border-radius: 15px;
   margin: 0 0;
@@ -179,13 +176,28 @@ background-color: #dcdcdc;
 border-radius: 15px;
 }
 
-#sharks{
+#sharksforcheap{
   background-color: #fff;
   border-radius: 15px;
 }
-#shawn{
+#shawndrost{
   background-color: #dcdcdc;
   border-radius: 15px;
+}
+
+#update:hover{
+  background: #dcdcdc;
+  cursor: pointer;
+
+}
+.title, h3{
+display: inline;
+  font-size: 35px;
+
+  margin-top: -30px;
+  margin-left: 250px;
+  margin-right: 185px;
+
 }
 
 h4,h3{
